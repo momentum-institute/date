@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Today By The Numbers</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <!-- Adding Material Icons CDN -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         .card-title {
             font-size: 24px;
@@ -24,7 +26,7 @@
         <div class="section">
             <div class="card blue darken-2">
                 <div class="card-content white-text">
-                    <span class="card-title"><i class="material-icons left">date_range</i>Day of Year:</span>
+                    <span class="card-title"><i class="material-icons left">calendar_today</i>Day of Year:</span>
                     <p><span id="day" class="badge blue lighten-2"></span></p>
                 </div>
             </div>
@@ -33,7 +35,7 @@
         <div class="section">
             <div class="card green darken-2">
                 <div class="card-content white-text">
-                    <span class="card-title"><i class="material-icons left">event</i>Week of Year:</span>
+                    <span class="card-title"><i class="material-icons left">event_note</i>Week of Year:</span>
                     <p><span id="week" class="badge green lighten-2"></span></p>
                 </div>
             </div>
@@ -42,7 +44,7 @@
         <div class="section">
             <div class="card purple darken-2">
                 <div class="card-content white-text">
-                    <span class="card-title"><i class="material-icons left">calendar_today</i>Month of Year:</span>
+                    <span class="card-title"><i class="material-icons left">date_range</i>Month of Year:</span>
                     <p><span id="month" class="badge purple lighten-2"></span></p>
                 </div>
             </div>
