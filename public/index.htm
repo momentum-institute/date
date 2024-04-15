@@ -13,10 +13,21 @@
             font-size: 24px;
             font-weight: bold;
         }
-        .badge {
-            font-size: 20px;
+        .time-text {
+            font-size: 48px; /* Large base size, but will adjust as needed */
             font-weight: bold;
-            padding: 10px;
+            width: 100%;
+            max-width: 600px; /* Max width of 600px */
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
     </style>
 </head>
@@ -27,7 +38,7 @@
             <div class="card blue darken-2">
                 <div class="card-content white-text">
                     <span class="card-title"><i class="material-icons left">calendar_today</i>Day of Year:</span>
-                    <p><span id="day" class="badge blue lighten-2"></span></p>
+                    <p><span id="day" class="time-text"></span></p>
                 </div>
             </div>
         </div>
@@ -36,7 +47,7 @@
             <div class="card green darken-2">
                 <div class="card-content white-text">
                     <span class="card-title"><i class="material-icons left">event_note</i>Week of Year:</span>
-                    <p><span id="week" class="badge green lighten-2"></span></p>
+                    <p><span id="week" class="time-text"></span></p>
                 </div>
             </div>
         </div>
@@ -45,7 +56,7 @@
             <div class="card purple darken-2">
                 <div class="card-content white-text">
                     <span class="card-title"><i class="material-icons left">date_range</i>Month of Year:</span>
-                    <p><span id="month" class="badge purple lighten-2"></span></p>
+                    <p><span id="month" class="time-text"></span></p>
                 </div>
             </div>
         </div>
@@ -54,7 +65,7 @@
             <div class="card red darken-2">
                 <div class="card-content white-text">
                     <span class="card-title"><i class="material-icons left">access_time</i>Date:</span>
-                    <p><span id="dateTimeOffset" class="badge red lighten-2"></span></p>
+                    <p><span id="dateTimeOffset" class="time-text"></span></p>
                 </div>
             </div>
         </div>
