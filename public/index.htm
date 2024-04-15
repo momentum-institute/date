@@ -6,28 +6,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Today By The Numbers</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <style>
+        .card-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .badge {
+            font-size: 20px;
+            font-weight: bold;
+            padding: 10px;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
         <div class="section">
-            <h5>Day of Year:</h5>
-            <p><span id="day" class="badge blue white-text"></p>
+            <div class="card blue darken-2">
+                <div class="card-content white-text">
+                    <span class="card-title"><i class="material-icons left">date_range</i>Day of Year:</span>
+                    <p><span id="day" class="badge blue lighten-2"></span></p>
+                </div>
+            </div>
         </div>
 
         <div class="section">
-            <h5>Week of Year:</h5>
-            <p><span id="week" class="badge blue white-text"></span></p>
+            <div class="card green darken-2">
+                <div class="card-content white-text">
+                    <span class="card-title"><i class="material-icons left">event</i>Week of Year:</span>
+                    <p><span id="week" class="badge green lighten-2"></span></p>
+                </div>
+            </div>
         </div>
 
         <div class="section">
-            <h5>Month of Year:</h5>
-            <p><span id="month" class="badge blue white-text"></span></p>
+            <div class="card purple darken-2">
+                <div class="card-content white-text">
+                    <span class="card-title"><i class="material-icons left">calendar_today</i>Month of Year:</span>
+                    <p><span id="month" class="badge purple lighten-2"></span></p>
+                </div>
+            </div>
         </div>
 
         <div class="section">
-            <h5>Date:</h5>
-            <p><span id="dateTimeOffset" class="badge blue white-text"></span></p>
+            <div class="card red darken-2">
+                <div class="card-content white-text">
+                    <span class="card-title"><i class="material-icons left">access_time</i>Date:</span>
+                    <p><span id="dateTimeOffset" class="badge red lighten-2"></span></p>
+                </div>
+            </div>
         </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
