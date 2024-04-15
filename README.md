@@ -1,6 +1,6 @@
 # Today By The Numbers
 
-[Today By The Numbers](https://momentum-institute.github.io/date/)
+[Today By The Numbers](https://momentum-institute.github.io/today/)
 
 ## Overview
 
