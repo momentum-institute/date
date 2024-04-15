@@ -4,58 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ISO 8601 Date and Time</title>
+    <title>Today By The Numbers</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="container">
-        <!-- Display Date and Time with Offset -->
         <div class="section">
-            <h5>Today:</h5>
+            <h5>Day of Year:</h5>
+            <p><span id="day" class="badge blue white-text"></p>
+        </div>
+
+        <div class="section">
+            <h5>Week of Year:</h5>
+            <p><span id="week" class="badge blue white-text"></span></p>
+        </div>
+
+        <div class="section">
+            <h5>Month of Year:</h5>
+            <p><span id="month" class="badge blue white-text"></span></p>
+        </div>
+
+        <div class="section">
+            <h5>Date:</h5>
             <p><span id="dateTimeOffset" class="badge blue white-text"></span></p>
         </div>
-
-        <!-- Ordinal Date -->
-        <div class="section">
-            <h5>Components:</h5>
-            <p><span id="components" class="badge blue white-text"></span></p>
-        </div>
-
-        <!-- Week of the Year -->
-        <!-- <div class="section">
-            <h5>Week:</h5>
-            <p><span id="weekYear" class="badge blue white-text"></span></p>
-        </div> -->
-
-        <!-- Week and Weekday -->
-        <!-- <div class="section">
-            <h5>Week with Weekday:</h5>
-            <p><span id="weekDay" class="badge blue white-text"></span></p>
-        </div> -->
-
-        <!-- Display Current Date -->
-        <!-- <div class="section">
-            <h5>Today's Date:</h5>
-            <p><span id="currentDate" class="badge blue white-text"></span></p>
-        </div> -->
-
-        <!-- Display Time in UTC -->
-        <!-- <div class="section">
-            <h5>Time in UTC:</h5>
-            <p><span id="timeUTC" class="badge blue white-text"></span></p>
-        </div> -->
-
-        <!-- Display Date and Time in UTC -->
-        <!-- <div class="section">
-            <h5>Date and Time in UTC:</h5>
-            <p><span id="dateTimeUTC" class="badge blue white-text"></span></p>
-        </div> -->
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script>
             function updateTime() {
                 const now = new Date();
+
+                const monthNumber = `${now.getMonth() + 1}`;
 
                 const offset = now.getTimezoneOffset();
                 const offsetHours = Math.floor(Math.abs(offset) / 60);
@@ -69,7 +49,9 @@
                 const weekNumber = Math.ceil(days / 7);
                 const weekday = now.getDay() === 0 ? 7 : now.getDay(); // Sunday as 7
 
-                document.getElementById('components').textContent = `D${String(days).padStart(3, '0')} - W${String(weekNumber).padStart(2, '0')} - ${weekday}`;
+                document.getElementById('day').textContent = `D${String(days).padStart(3, '0')}`;
+                document.getElementById('week').textContent = `W${String(weekNumber).padStart(2, '0')} - ${weekday}`;
+                document.getElementById('month').textContent = `M${monthNumber.padStart(2, '0')}`;
             }
 
             // Initial update
