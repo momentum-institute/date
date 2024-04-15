@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISO 8601 Date and Time</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Display Date and Time with Offset -->
+        <div class="section">
+            <h5>Today:</h5>
+            <p><span id="dateTimeOffset" class="badge blue white-text"></span></p>
+        </div>
+
+        <!-- Ordinal Date -->
+        <div class="section">
+            <h5>Components:</h5>
+            <p><span id="components" class="badge blue white-text"></span></p>
+        </div>
+
+        <!-- Week of the Year -->
+        <!-- <div class="section">
+            <h5>Week:</h5>
+            <p><span id="weekYear" class="badge blue white-text"></span></p>
+        </div> -->
+
+        <!-- Week and Weekday -->
+        <!-- <div class="section">
+            <h5>Week with Weekday:</h5>
+            <p><span id="weekDay" class="badge blue white-text"></span></p>
+        </div> -->
+
+        <!-- Display Current Date -->
+        <!-- <div class="section">
+            <h5>Today's Date:</h5>
+            <p><span id="currentDate" class="badge blue white-text"></span></p>
+        </div> -->
+
+        <!-- Display Time in UTC -->
+        <!-- <div class="section">
+            <h5>Time in UTC:</h5>
+            <p><span id="timeUTC" class="badge blue white-text"></span></p>
+        </div> -->
+
+        <!-- Display Date and Time in UTC -->
+        <!-- <div class="section">
+            <h5>Date and Time in UTC:</h5>
+            <p><span id="dateTimeUTC" class="badge blue white-text"></span></p>
+        </div> -->
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script>
+            function updateTime() {
+                const now = new Date();
+
+                const offset = now.getTimezoneOffset();
+                const offsetHours = Math.floor(Math.abs(offset) / 60);
+                const offsetMinutes = Math.abs(offset) % 60;
+                const offsetSign = offset > 0 ? '-' : '+';
+                const formattedOffset = `${offsetSign}${String(offsetHours).padStart(2, '0')}:${String(offsetMinutes).padStart(2, '0')}`;
+                document.getElementById('dateTimeOffset').textContent = `${now.toLocaleString('en-US', { timeZone: 'America/New_York' })}`;
+
+                const startOfYear = new Date(now.getFullYear(), 0, 1);
+                const days = Math.floor((now - startOfYear) / (24 * 60 * 60 * 1000)) + 1;
+                const weekNumber = Math.ceil(days / 7);
+                const weekday = now.getDay() === 0 ? 7 : now.getDay(); // Sunday as 7
+
+                document.getElementById('components').textContent = `D${String(days).padStart(3, '0')} - W${String(weekNumber).padStart(2, '0')} - ${weekday}`;
+            }
+
+            // Initial update
+            updateTime();
+            setInterval(updateTime, 1000); // Update every second
+        </script>
+    </div>
+</body>
+
+</html>
