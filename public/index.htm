@@ -22,6 +22,12 @@
             white-space: nowrap;
             text-overflow: ellipsis;
         }
+        .fit-text {
+            font-size: calc(20px + 28 * ((100vw - 300px) / (1600 - 300))); /* Adjust font size dynamically */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
         .card-content {
             display: flex;
             flex-direction: column;
@@ -65,7 +71,7 @@
             <div class="card red darken-2">
                 <div class="card-content white-text">
                     <span class="card-title"><i class="material-icons left">access_time</i>Date:</span>
-                    <p><span id="dateTimeOffset" class="time-text"></span></p>
+                    <p><span id="dateTimeOffset" class="fit-text"></span></p>
                 </div>
             </div>
         </div>
