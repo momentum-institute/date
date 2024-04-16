@@ -13,21 +13,27 @@
             font-size: 24px;
             font-weight: bold;
         }
+
         .time-text {
-            font-size: 48px; /* Large base size, but will adjust as needed */
+            font-size: 48px;
+            /* Large base size, but will adjust as needed */
             font-weight: bold;
             width: 100%;
-            max-width: 600px; /* Max width of 600px */
+            max-width: 600px;
+            /* Max width of 600px */
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
         }
+
         .fit-text {
-            font-size: calc(20px + 28 * ((100vw - 300px) / (1600 - 300))); /* Adjust font size dynamically */
+            font-size: calc(20px + 28 * ((100vw - 300px) / (1600 - 300)));
+            /* Adjust font size dynamically */
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
         }
+
         .card-content {
             display: flex;
             flex-direction: column;
@@ -40,6 +46,15 @@
 
 <body>
     <div class="container">
+        <div class="section">
+            <div class="card red darken-2">
+                <div class="card-content white-text">
+                    <span class="card-title"><i class="material-icons left">access_time</i>Date:</span>
+                    <p><span id="todayDate" class="fit-text"></span></p>
+                </div>
+            </div>
+        </div>
+
         <div class="section">
             <div class="card blue darken-2">
                 <div class="card-content white-text">
@@ -58,37 +73,17 @@
             </div>
         </div>
 
-        <div class="section">
-            <div class="card purple darken-2">
-                <div class="card-content white-text">
-                    <span class="card-title"><i class="material-icons left">event_note</i>Month:</span>
-                    <p><span id="month" class="time-text"></span></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <div class="card red darken-2">
-                <div class="card-content white-text">
-                    <span class="card-title"><i class="material-icons left">access_time</i>Date:</span>
-                    <p><span id="dateTimeOffset" class="fit-text"></span></p>
-                </div>
-            </div>
-        </div>
-
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script>
             function updateTime() {
                 const now = new Date();
-
-                const monthNumber = `${now.getMonth() + 1}`;
-
-                const offset = now.getTimezoneOffset();
-                const offsetHours = Math.floor(Math.abs(offset) / 60);
-                const offsetMinutes = Math.abs(offset) % 60;
-                const offsetSign = offset > 0 ? '-' : '+';
-                const formattedOffset = `${offsetSign}${String(offsetHours).padStart(2, '0')}:${String(offsetMinutes).padStart(2, '0')}`;
-                document.getElementById('dateTimeOffset').textContent = `${now.toLocaleString('en-US', { timeZone: 'America/New_York' })}`;
+                const options = {
+                    timeZone: 'America/New_York',
+                    weekday: 'long',
+                    month: 'long',
+                    day: 'numeric'
+                }
+                document.getElementById('todayDate').textContent = `${now.toLocaleString('en-US', options)}`;
 
                 const startOfYear = new Date(now.getFullYear(), 0, 1);
                 const days = Math.floor((now - startOfYear) / (24 * 60 * 60 * 1000)) + 1;
