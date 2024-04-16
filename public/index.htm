@@ -43,7 +43,7 @@
         <div class="section">
             <div class="card blue darken-2">
                 <div class="card-content white-text">
-                    <span class="card-title"><i class="material-icons left">today</i>Day of Year:</span>
+                    <span class="card-title"><i class="material-icons left">today</i>Day:</span>
                     <p><span id="day" class="time-text"></span></p>
                 </div>
             </div>
@@ -52,7 +52,7 @@
         <div class="section">
             <div class="card green darken-2">
                 <div class="card-content white-text">
-                    <span class="card-title"><i class="material-icons left">date_range</i>Week of Year:</span>
+                    <span class="card-title"><i class="material-icons left">date_range</i>Week:</span>
                     <p><span id="week" class="time-text"></span></p>
                 </div>
             </div>
@@ -61,7 +61,7 @@
         <div class="section">
             <div class="card purple darken-2">
                 <div class="card-content white-text">
-                    <span class="card-title"><i class="material-icons left">event_note</i>Month of Year:</span>
+                    <span class="card-title"><i class="material-icons left">event_note</i>Month:</span>
                     <p><span id="month" class="time-text"></span></p>
                 </div>
             </div>
@@ -96,7 +96,8 @@
                 const weekday = now.getDay() === 0 ? 7 : now.getDay(); // Sunday as 7
 
                 document.getElementById('day').textContent = `D${String(days).padStart(3, '0')}`;
-                document.getElementById('week').textContent = `W${String(weekNumber).padStart(2, '0')} - ${weekday}`;
+                document.getElementById('week').textContent = `W${String(weekNumber).padStart(2, '0')}`;
+                // document.getElementById('week').textContent = `W${String(weekNumber).padStart(2, '0')} - ${weekday}`;
                 document.getElementById('month').textContent = `M${monthNumber.padStart(2, '0')}`;
             }
 
