@@ -76,9 +76,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script>
             function updateTime() {
-                const now = new Date();
+                const localNow = new Date().toLocaleString("en-US", { timeZone: "America/New_York" });
+                const now = new Date(localNow);
                 const options = {
-                    timeZone: 'America/New_York',
                     weekday: 'long',
                     month: 'long',
                     day: 'numeric'
@@ -88,12 +88,9 @@
                 const startOfYear = new Date(now.getFullYear(), 0, 1);
                 const days = Math.floor((now - startOfYear) / (24 * 60 * 60 * 1000)) + 1;
                 const weekNumber = Math.ceil(days / 7);
-                const weekday = now.getDay() === 0 ? 7 : now.getDay(); // Sunday as 7
 
                 document.getElementById('day').textContent = `D${String(days).padStart(3, '0')}`;
                 document.getElementById('week').textContent = `W${String(weekNumber).padStart(2, '0')}`;
-                // document.getElementById('week').textContent = `W${String(weekNumber).padStart(2, '0')} - ${weekday}`;
-                document.getElementById('month').textContent = `M${monthNumber.padStart(2, '0')}`;
             }
 
             // Initial update
